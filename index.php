@@ -131,6 +131,8 @@ class MaClasse implements IMonInterface
         echo $firstName;
       }
   }
+
+// hello ! c'est fini
 ?> 
 
 
