@@ -109,6 +109,28 @@ class Person
   }
 
 // Si une de nos classes a besoin d'une instance d'une autre classes dans une de ses methodes ou son constructeur, alors elle prendra cette instance directement en paramètre et ne se changera pas de l'instancier elle -meme.
+
+//============================================================================
+//    Les IInterfaces en PHP
+// Les interfaces permettent de créer un modele que les classes qu il'implémentes doivent respecter. Il faur voir l'interface comme un contrat d'utilisation. En implémentant une interface, une classe s'olige à définir l'ensemnle de ses méthodes.
+
+interface IMonIterfaceStatic
+  {
+    static function staticFonc1($name);
+    static function staticFonc2($firstName);
+  }
+
+class MaClasse implements IMonInterface
+  {
+    public function Fonc1($name);
+    {
+        echo $name;
+    }
+    public function fonc2($firstName)
+      {
+        echo $firstName;
+      }
+  }
 ?> 
 
 
