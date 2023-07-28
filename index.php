@@ -60,6 +60,53 @@ if ($logger1 ===$logger2) {
    }
    
 $pdo = PDOSingleton::getInstance();
+
+// UN autree avantage inhérent de Singleton est la possibilité de les instancier de n'importe ou.
+
+// Une alternative: L INJECTION DE DEPENDANCE.
+// Comme nous l'avons vu,le but d'un patron de depondance est de repondre a un besoin récurent de façon optiùmale.
+// Puisque les Singletons avaient des limites et ne devaient pas etre utilisées dans toiutes les situation, il était alorslogique qu'un autre design pattern naisse afin de répondre à ce problème de fort couplage: l'injection de dépendance.
+
+
+// Partons d'une application qui gère des utilisateurs, ces utilisateurs ont chacun une addresse, cette adresse est une composante de plusieurs cariables. Le développement sans patron de conception commencerait de la sotre.
+class Adress
+  {
+    private $number;
+    private $street;
+    private $zipcode;
+    private $city;
+
+    public functiop __construct($number, $street, $zipcode, $city)
+    {
+    $this -> number = $number;
+    $this -> street = $street;
+    $this -> zipcode = $zipcode;
+    $this -> city = $city;
+    }
+  }
+class Person
+  {
+    private $address;
+
+    public function __construct($number, $street, $zipcode, $city)
+    {
+      $this-> address = new Address(($number, $street, $zipcode, $city)
+;    }
+  }
+
+$person = new Person(4, 'chemin du village', 11110, 'Narbonne city' );
+
+// Le problème est que la class Person est étroitement liée à la class Adress,
+// la xlasse Person est meme inutilisable sans la classe Adress. De plus , imaginons que l'on souhaite ajouter une variable à la calsse Address, par exemple $country, il faudre aussi modifier le construcyteur de la calsse Person et lui ajouter un parametre. La solution pour eviter toutes ses manipulations est l'injection de dépendance.
+
+class Person
+  {
+    private £address;
+    public function __construct(Adress $address)
+    {
+      $this-> address = $address;
+    }
+  }
 ?> 
 
 
