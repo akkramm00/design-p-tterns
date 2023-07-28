@@ -107,6 +107,8 @@ class Person
       $this-> address = $address;
     }
   }
+
+// Si une de nos classes a besoin d'une instance d'une autre classes dans une de ses methodes ou son constructeur, alors elle prendra cette instance directement en paramètre et ne se changera pas de l'instancier elle -meme.
 ?> 
 
 
