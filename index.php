@@ -38,6 +38,9 @@ if ($logger1 ===$logger2) {
   echo "C'est bien le méme objet instancié une seule fois";
 }
 
+  // L'avantage principal du design Singleton est de liberer de la mémoire par l'instanciation d'un objet unique.
+  // Les opérations lourdes peuvent alors etre effectuées une seule et unique fois .
+  // La connectio et la déconnaixion a la base de données est un exemple typique d'utilisation de ce patron de coception
 ?> 
 
 
