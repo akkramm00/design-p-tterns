@@ -40,7 +40,26 @@ if ($logger1 ===$logger2) {
 
   // L'avantage principal du design Singleton est de liberer de la mémoire par l'instanciation d'un objet unique.
   // Les opérations lourdes peuvent alors etre effectuées une seule et unique fois .
-  // La connectio et la déconnaixion a la base de données est un exemple typique d'utilisation de ce patron de coception
+  //==========================================================================
+  
+  // La connectio et la déconnaixion a la base de données est un exemple typique d'utilisation de ce patron de conception
+ class PDOSingleton
+   {
+     private static PDO $instance;
+
+     private function __construct() {}
+     private function __clone() {}
+
+     public static function getInstance(): PDO
+     {
+       if(!isset(self::$instyance)){
+         self::$instance = new PDO("mysql:host=localhost;dbname=dbname; charset=utf8", "root", "");
+       }
+       return self::$instance;
+     }
+   }
+   
+$pdo = PDOSingleton::getInstance();
 ?> 
 
 
